@@ -1,0 +1,375 @@
+[
+  {
+   "name": "Носки",
+   "parameters": [
+    {
+    "color": "WHITE (белые)",
+    "size": 23,
+    "cottonPart": 10,
+     "quantity": 40
+    },
+   {
+    "color": "WHITE (белые)",
+    "size": 25,
+    "cottonPart": 10,
+    "quantity": 45
+   },
+   {
+   "color": "WHITE (белые)",
+    "size": 27,
+    "cottonPart": 10,
+    "quantity": 50
+   },
+   {
+   "color": "WHITE (белые)",
+    "size": 29,
+    "cottonPart": 10,
+    "quantity": 50
+   },
+  {
+   "color": "WHITE (белые)",
+    "size": 31,
+    "cottonPart": 10,
+   "quantity": 25
+   },
+  {
+   "color": "WHITE (белые)",
+    "size": 33,
+    "cottonPart": 10,
+   "quantity": 25
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 23,
+    "cottonPart": 20,
+   "quantity": 25
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 25,
+    "cottonPart": 20,
+   "quantity": 25
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 27,
+    "cottonPart": 20,
+   "quantity": 25
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 29,
+    "cottonPart": 20,
+   "quantity": 25
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 31,
+    "cottonPart": 20,
+   "quantity": 25
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 33,
+    "cottonPart": 20,
+   "quantity": 25
+   },
+  {
+   "color": "RED (красные)",
+    "size": 23,
+    "cottonPart": 30,
+   "quantity": 25
+   },
+  {
+   "color": "RED (красные)",
+    "size": 25,
+    "cottonPart": 30,
+   "quantity": 25
+   },
+  {
+   "color": "RED (красные)",
+    "size": 27,
+    "cottonPart": 30,
+   "quantity": 35
+   },
+  {
+   "color": "RED (красные)",
+    "size": 29,
+    "cottonPart": 30,
+   "quantity": 35
+   },
+  {
+   "color": "RED (красные)",
+    "size": 31,
+    "cottonPart": 30,
+   "quantity": 35
+   },
+  {
+   "color": "RED (красные)",
+    "size": 33,
+    "cottonPart": 30,
+   "quantity": 35
+   },
+  {
+   "color": "DARK_BLUE (темно-синие)",
+    "size": 23,
+    "cottonPart": 40,
+   "quantity": 35
+   },
+  {
+   "color": "DARK_BLUE (темно-синие)",
+    "size": 25,
+    "cottonPart": 40,
+   "quantity": 35
+   },
+   {
+   "color": "DARK_BLUE (темно-синие)",
+    "size": 27,
+    "cottonPart": 40,
+    "quantity": 35
+   },
+   {
+   "color": "DARK_BLUE (темно-синие)",
+    "size": 29,
+    "cottonPart": 40,
+    "quantity": 35
+   },
+   {
+   "color": "DARK_BLUE (темно-синие)",
+    "size": 31,
+    "cottonPart": 40,
+    "quantity": 35
+   },
+   {
+   "color": "DARK_BLUE (темно-синие)",
+    "size": 33,
+    "cottonPart": 40,
+    "quantity": 35
+   },
+   {
+   "color": "COLORED_GREEN (разноцветная зелень)",
+    "size": 23,
+    "cottonPart": 50,
+    "quantity": 35
+   },
+   {
+   "color": "COLORED_GREEN (разноцветная зелень)",
+    "size": 25,
+    "cottonPart": 50,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_GREEN (разноцветная зелень)",
+    "size": 27,
+    "cottonPart": 50,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_GREEN (разноцветная зелень)",
+    "size": 29,
+    "cottonPart": 50,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_GREEN (разноцветная зелень)",
+    "size": 31,
+    "cottonPart": 50,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_GREEN (разноцветная зелень)",
+    "size": 33,
+    "cottonPart": 50,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_BLUE (разноцветная синь)",
+    "size": 23,
+    "cottonPart": 60,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_BLUE (разноцветная синь)",
+    "size": 25,
+    "cottonPart": 60,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_BLUE (разноцветная синь)",
+    "size": 27,
+    "cottonPart": 60,
+    "quantity": 100
+   },
+   {
+   "color": "COLORED_BLUE (разноцветная синь)",
+    "size": 29,
+    "cottonPart": 60,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_BLUE (разноцветная синь)",
+    "size": 31,
+    "cottonPart": 60,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_BLUE (разноцветная синь)",
+    "size": 33,
+    "cottonPart": 60,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_YELLOW (цветные желтые)",
+    "size": 23,
+    "cottonPart": 70,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_YELLOW (цветные желтые)",
+    "size": 25,
+    "cottonPart": 70,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_YELLOW (цветные желтые)",
+    "size": 27,
+    "cottonPart": 70,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_YELLOW (цветные желтые)",
+    "size": 29,
+    "cottonPart": 70,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_YELLOW (цветные желтые)",
+    "size": 31,
+    "cottonPart": 70,
+    "quantity": 120
+   },
+   {
+   "color": "COLORED_YELLOW (цветные желтые)",
+    "size": 33,
+    "cottonPart": 70,
+    "quantity": 120
+   },
+    {
+    "color": "WHITE (белые)",
+    "size": 23,
+    "cottonPart": 80,
+     "quantity": 110
+    },
+    {
+    "color": "WHITE (белые)",
+    "size": 25,
+    "cottonPart": 80,
+     "quantity": 110
+    },
+    {
+    "color": "WHITE (белые)",
+    "size": 27,
+    "cottonPart": 80,
+     "quantity": 110
+    },
+    {
+    "color": "WHITE (белые)",
+    "size": 29,
+    "cottonPart": 80,
+     "quantity": 110
+    },
+    {
+    "color": "WHITE (белые)",
+    "size": 31,
+    "cottonPart": 80,
+     "quantity": 110
+    },
+    {
+    "color": "WHITE (белые)",
+    "size": 33,
+    "cottonPart": 80,
+     "quantity": 110
+    },
+  {
+   "color": "BLACK (черные)",
+    "size": 23,
+    "cottonPart": 90,
+   "quantity": 110
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 25,
+    "cottonPart": 90,
+   "quantity": 130
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 27,
+    "cottonPart": 90,
+   "quantity": 130
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 29,
+    "cottonPart": 90,
+   "quantity": 130
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 31,
+    "cottonPart": 90,
+   "quantity": 130
+   },
+  {
+   "color": "BLACK (черные)",
+    "size": 33,
+    "cottonPart": 90,
+   "quantity": 130
+   },
+  {
+   "color": "RED (красные)",
+    "size": 25,
+    "cottonPart": 100,
+   "quantity": 65
+   },
+  {
+   "color": "RED (красные)",
+    "size": 27,
+    "cottonPart": 100,
+   "quantity": 65
+   },
+  {
+   "color": "RED (красные)",
+    "size": 29,
+    "cottonPart": 100,
+   "quantity": 65
+   },
+  {
+   "color": "RED (красные)",
+    "size": 31,
+    "cottonPart": 100,
+   "quantity": 65
+   },
+  {
+   "color": "RED (красные)",
+    "size": 33,
+    "cottonPart": 100,
+   "quantity": 65
+   }
+ ]
+}
+   
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
