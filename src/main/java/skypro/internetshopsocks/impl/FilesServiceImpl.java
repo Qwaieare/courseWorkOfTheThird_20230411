@@ -1,10 +1,13 @@
 package skypro.internetshopsocks.impl;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import skypro.internetshopsocks.services.FileService;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -63,14 +66,37 @@ public class FilesServiceImpl implements FileService  {
     @Override
     public Path createTempFile(String suffix) { // метод создает временные файлы
         try {
+            if (Files.notExists(Path.of(dataFilePath))) {
+                Files.createDirectory(Path.of(dataFilePath));
+            }
             return Files.createTempFile(Path.of(dataFilePath), "tempFile", suffix);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    @Override
+    public void createNewFileIfNotExist(String dataFileName) {
+        try {
+            Path path = Path.of(dataFilePath, dataFileName);
+            if (Files.notExists(path)) {
+                Files.createFile(path);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-
-
+    public boolean uploadDataFile(MultipartFile file) {
+        cleanDataFile();
+        File dataFile = getDataFile();
+        try (FileOutputStream fos = new FileOutputStream(dataFile)) {
+            IOUtils.copy(file.getInputStream(), fos);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

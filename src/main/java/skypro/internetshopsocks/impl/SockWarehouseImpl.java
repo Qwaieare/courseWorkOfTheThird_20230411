@@ -12,22 +12,23 @@ import skypro.internetshopsocks.models.Socks;
 import skypro.internetshopsocks.services.FileService;
 import skypro.internetshopsocks.services.SockWarehouseService;
 
+import javax.annotation.PostConstruct;
+import javax.validation.ValidationException;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class SockWarehouseImpl implements SockWarehouseService {
-
     private static Map<Socks, Long> batchOfSsocks = new HashMap<>();
-
-    @PositiveOrZero(message = "Количество должно быть больше нуля")
-
     private final FileService fileService;
 
+    @PositiveOrZero(message = "Количество должно быть больше нуля")
+    private long quantity;
     public SockWarehouseImpl(FileService fileService) {
-        this.fileService = fileService;
+         this.fileService = fileService;
     }
+
 
 
     @Override
@@ -36,44 +37,53 @@ public class SockWarehouseImpl implements SockWarehouseService {
         if (batchOfSsocks.containsKey(socks)) {
             batchOfSsocks.replace(socks, batchOfSsocks.get(socks) + sockWarehouse.getQuantity());
         } else {
-            batchOfSsocks.putIfAbsent(socks, sockWarehouse.getQuantity());
+            batchOfSsocks.put(socks, sockWarehouse.getQuantity());
         }
+        saveToFile();
         return socks;
     }
 
-
     @Override
-    public Map<Socks, Long>  getFilterSockWarehouse(ColorSocks colorSocks, SizeSocks sizeSocks, int cottonPart) {
-        Map<Socks, Long> socksFilter = batchOfSsocks.entrySet()
-                .stream()
-                .filter(map -> map.getKey().getColorSocks().equals(colorSocks))
-                .filter(map -> map.getKey().getSizeSocks().equals(sizeSocks))
-                .filter(map -> map.getKey().getCottonPart() == cottonPart)
-                .collect(Collectors
-                        .toMap(Map.Entry::getKey,
-                                Map.Entry::getValue)
-                        );
-        saveToFile();
-        return socksFilter;
+    public Map<Socks, Long> getAll() {
+        return batchOfSsocks;
+     }
+
+
+     @Override
+    public Map<Socks, Long> getFilterSockWarehouse(ColorSocks colorSocks, SizeSocks sizeSocks,
+                                                   int cottonPart, long quantity)
+                                                   throws ValidationException {
+        if (batchOfSsocks.containsValue(quantity)) {
+
+            Map<Socks, Long> socksFilter = batchOfSsocks.entrySet()
+                    .stream()
+                    .filter(map -> map.getKey().getColorSocks().equals(colorSocks))
+                    .filter(map -> map.getKey().getSizeSocks().equals(sizeSocks))
+                    .filter(map -> map.getKey().getCottonPart() == cottonPart)
+                    .filter(map -> "quantity".equals(map.getValue()))
+                    .collect(Collectors
+                            .toMap(Map.Entry::getKey,
+                                    Map.Entry::getValue)
+                    );
+            return socksFilter;
+        }
+        return null;
     }
 
 
     @Override
-    public Map<Socks, Long>  editFilterSockWarehouse(ColorSocks colorSocks, SizeSocks sizeSocks, int cottonPart) {
-        Map<Socks, Long> socksFilterEdit = batchOfSsocks.entrySet()
-                .stream()
-                .filter(map -> map.getKey().getColorSocks().equals(colorSocks))
-                .filter(map -> map.getKey().getSizeSocks().equals(sizeSocks))
-                .filter(map -> map.getKey().getCottonPart() == cottonPart)
-                .collect(Collectors
-                        .toMap(Map.Entry::getKey,
-                                Map.Entry::getValue)
-                );
-        socksFilterEdit.remove(colorSocks);
-        socksFilterEdit.remove(sizeSocks);
-        socksFilterEdit.remove(cottonPart);
-        saveToFile();
-        return socksFilterEdit;
+    public Socks editFilterSockWarehouse(Socks socks, long quantity) {
+        if (batchOfSsocks.containsValue(quantity)) {
+            long defectiveSocks = batchOfSsocks.get(socks) - quantity;
+            if (defectiveSocks > 0) {
+                batchOfSsocks.merge(socks, quantity, (a, b) -> a - b);
+                batchOfSsocks.putIfAbsent(socks, quantity);
+            }
+            saveToFile();
+        } else {
+            throw new IllegalArgumentException();
+        }
+        return socks;
     }
 
 
@@ -118,19 +128,18 @@ public class SockWarehouseImpl implements SockWarehouseService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 
-
-//
-//    @PostConstruct
-//    private void init() {
-//        try {
-//            readFromFile();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @PostConstruct
+    private void init() {
+        try {
+            readFromFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

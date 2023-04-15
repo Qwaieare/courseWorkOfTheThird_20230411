@@ -1,18 +1,36 @@
 package skypro.internetshopsocks.customserdeser;
 
 import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.jackson.JsonComponent;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class CustomTimeDeserializer extends JsonDeserializer {
-
+@JsonComponent
+@NoArgsConstructor
+public class CustomTimeDeserializer extends JsonDeserializer<LocalDateTime> {
+    private static DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public CustomTimeDeserializer(Class<?> vc) {
+        super();
+    }
 
     @Override
-    public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
-        return null;
-    }
+    public LocalDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+        String date = p.getText();
+            return LocalDateTime.parse(date, formatter);
+        }
+
 }
+
+
+
+

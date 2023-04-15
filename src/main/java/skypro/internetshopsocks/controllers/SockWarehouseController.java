@@ -60,9 +60,11 @@ public class SockWarehouseController {
     public ResponseEntity<Map<Socks, Long>> getFilterSockWarehouse(
             @RequestParam("выбрать цвет") ColorSocks colorSocks,
             @RequestParam("выбрать размер") SizeSocks sizeSocks,
-            @RequestParam("укажите содержание х/б") int cottonPart)
-             {
-            return ResponseEntity.ok(sockWarehouseService.getFilterSockWarehouse(colorSocks, sizeSocks, cottonPart));
+            @RequestParam("укажите содержание х/б") int cottonPart,
+            @RequestParam("укажите количество пар носков") long quantity )
+    {
+        return ResponseEntity.ok(sockWarehouseService.getFilterSockWarehouse(colorSocks,
+                sizeSocks, cottonPart, quantity));
     }
 
 
@@ -75,12 +77,13 @@ public class SockWarehouseController {
             @ApiResponse(responseCode = "400", description = "Not found"),
             @ApiResponse(responseCode = "500", description = "Internal Server Error")
     })
-    public ResponseEntity<Map<Socks, Long>> editFilterSockWarehouse(
-            @RequestParam("выдать по цвету") ColorSocks colorSocks,
-            @RequestParam("выдать по размеру") SizeSocks sizeSocks,
-            @RequestParam("выдать по составу х/б") int cottonPart)
+    public ResponseEntity<Socks> editFilterSockWarehouse( @RequestBody Socks socks, @RequestParam long quantity)
      {
-        return ResponseEntity.ok(sockWarehouseService.editFilterSockWarehouse(colorSocks, sizeSocks, cottonPart));
+         Socks socks1 = sockWarehouseService.editFilterSockWarehouse(socks, quantity);
+         if (socks1 == null) {
+             return ResponseEntity.notFound().build();
+         }
+         return ResponseEntity.ok(socks1);
     }
 
 

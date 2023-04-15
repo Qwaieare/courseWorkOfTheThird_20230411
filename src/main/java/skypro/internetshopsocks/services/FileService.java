@@ -18,4 +18,6 @@ public interface FileService {
     File getDataFile();
 
     Path createTempFile(String suffix);
+
+    void createNewFileIfNotExist(String dataFileName);
 }
